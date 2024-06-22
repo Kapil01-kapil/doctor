@@ -1,0 +1,157 @@
+<mvc:View
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    controllerName="hsp.doctor.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+        titleAlignment="Center"
+    >
+        <content>
+            <!-- <Text text="Please Enter Your Name"></Text> -->
+            <f:SimpleForm
+                id="idPatientDetails"
+                editable="false"
+                layout="ResponsiveGridLayout"
+                title="Doctor Appointment"
+                labelSpanXL="4"
+                labelSpanL="3"
+                labelSpanM="4"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="0"
+                emptySpanL="4"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="2"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false"
+            >
+                <f:content>
+                    <Label text="Please Enter your Name" />
+                    <Input
+                        id="IdPatientName"
+                        required="true"
+                    />
+                    <Label text="Please Select Your Date of Appointment" />
+                    <DatePicker
+                        id="idDate"
+                        class="sapUiSmallMarginBottom"
+                        required="true"
+                        showCurrentDateButton="true"
+                        afterValueHelpClose="onClickDate"
+                    />
+                    <Label text="Please Select your Slot" />
+                    <Select
+                        id="IdSlot"
+                        items="{mSlots>/0/slots}"
+                        showSecondaryValues="true"
+                    >
+                        <items>
+                            <core:ListItem
+                                text="{mSlots>time}"
+                                additionalText="{mSlots>avl}"
+                            />
+                        </items>
+                    </Select>
+                    <Label text="Please Enter your Health Issue" />
+                    <Input id="IdPatientProblem" />
+                </f:content>
+            </f:SimpleForm>
+            <HBox
+                alignItems="Center"
+                justifyContent="Center"
+            >
+                <Button
+                    type="Emphasized"
+                    text="Book Appoitment"
+                    press="onClickBookAppoitment"
+                />
+            </HBox>
+            <Dialog
+                id="idAppoitments"
+                title="Scheduled Appointment Details"
+            >
+                <Table items="{slotsModel>/}">
+                    <columns>
+                        <Column>
+                            <Text text="Patient Name" />
+                        </Column>
+                        <Column>
+                            <Text text="Slot Date" />
+                        </Column>
+                        <Column>
+                            <Text text="Slot Time" />
+                        </Column>
+                        <Column>
+                            <Text text="Patient Problem" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <Text text="{slotsModel>Name}" />
+                            <Text text="{slotsModel>Date}" />
+                            <Text text="{slotsModel>Slot}" />
+                            <Text text="{slotsModel>Prob}" />
+                        </ColumnListItem>
+                    </items>
+                </Table>
+                <endButton>
+                    <Button
+                        text="Close"
+                        press="onClose"
+                    />
+                </endButton>
+            </Dialog>
+            <Dialog
+                id="idSlots"
+                title="Appointment Availabilty Details"
+            >
+                <Table items="{SAVD>/}">
+                    <columns>
+                        <Column>
+                            <Text text="Date" />
+                        </Column>
+                        <Column>
+                            <Text text="Slot Time" />
+                        </Column>
+                        <Column>
+                            <Text text="Availabilty" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <Text text="{SAVD>date}" />
+                            <Text text="{SAVD>time}" />
+                            <Text text="{SAVD>avl}" />
+                        </ColumnListItem>
+                    </items>
+                </Table>
+                <endButton>
+                    <Button
+                        text="Close"
+                        press="onClose"
+                    />
+                </endButton>
+            </Dialog>
+        </content>
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer />
+                <Button
+                    text="Show Appointments "
+                    press="openAppoitments"
+                />
+                <Button
+                    text="Show Slots"
+                    press="openSlots"
+                />
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>
