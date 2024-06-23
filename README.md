@@ -10,21 +10,21 @@
 | ------------- |![Screenshot (29)](https://github.com/Kapil01-kapil/doctor/assets/78734853/afd864e7-0799-4258-ab72-e395a2e23204)
 ![Screenshot (30)](https://github.com/Kapil01-kapil/doctor/assets/78734853/8c64a966-7367-4879-a211-cefeb57cac99)
 
-|**Generation Date and Time**<br>Sat Jun 22 2024 09:37:49 GMT+0530 (India Standard Time)|
-|**App Generator**<br>@sap/generator-fiori-freestyle|
-|**App Generator Version**<br>1.14.0|
-|**Generation Platform**<br>Visual Studio Code|
-|**Template Used**<br>simple|
-|**Service Type**<br>None|
-|**Service URL**<br>N/A
-|**Module Name**<br>doctor|
-|**Application Title**<br>App Title|
-|**Namespace**<br>hsp|
-|**UI5 Theme**<br>sap_horizon|
-|**UI5 Version**<br>1.125.1|
-|**Enable Code Assist Libraries**<br>False|
-|**Enable TypeScript**<br>False|
-|**Add Eslint configuration**<br>False|
+
+Create an app that lets a patient make an appointment with a doctor. A doctor
+
+works for n days a week
+has y number of slots per day.
+Patient will need to provide
+
+patient name
+date and time
+description of health issue
+The App
+
+should display the Doctor schedule and which slots are free or taken.
+should allow patient to book an appointment
+should not allow patient to book the same slot
 
 ## doctor
 
